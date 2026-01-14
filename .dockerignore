@@ -1,0 +1,7 @@
+.dockerignore
+.history
+.idea
+.vscode
+.DS_Store
+test-results
+**/node_modules

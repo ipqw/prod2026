@@ -1,0 +1,22 @@
+{
+  "name": "test-2026-frontend",
+    "version": "1.0.0",
+    "license": "UNLICENSED",
+    "type": "module",
+    "scripts": {
+        "start": "vite --host --port 8080 solution",
+        "test": "playwright test",
+        "test:ui": "playwright test --ui",
+        "format": "prettier '{solution,tests}/**/*' --write"
+    },
+    "devDependencies": {
+        "@types/node": "24.10.4",
+        "@playwright/test": "1.57.0",
+        "prettier": "3.7.4",
+        "vite": "7.2.2"
+    },
+    "engines": {
+        "node": "24.12.0",
+        "npm": "11.6.2"
+    }
+}

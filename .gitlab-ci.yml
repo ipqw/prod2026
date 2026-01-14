@@ -1,0 +1,46 @@
+include:
+  - project: pipelines/pipelines
+    ref: main
+    file:
+      - "/jobs/build.yaml"
+      - "/jobs/rules.yaml"
+
+.global-variables:
+  variables:
+      DOCKERFILE_PATH: dockerfile
+      DOCKER_CONFIG: /kaniko/.docker
+      CONTEXT: $CI_PROJECT_DIR
+      IMAGE_TAG: $CI_COMMIT_SHA
+      IMAGE_NAME: $CI_REGISTRY_IMAGE:$IMAGE_TAG
+      REGISTRY_USER: $CI_REGISTRY_USER
+      REGISTRY_PASSWORD: $CI_REGISTRY_PASSWORD
+      REGISTRY_URL: $CI_REGISTRY
+
+stages:
+  - build
+  - tests
+
+build:
+  stage: build
+  extends:
+    - .build
+    - .global-variables
+    - .rules-merge-or-master
+
+tests:
+  stage: tests
+  extends:
+    - .rules-merge-or-master
+    - .global-variables
+  image: $IMAGE_NAME
+  variables:
+    PLAYWRIGHT_JUNIT_OUTPUT_FILE: "test-results/results.xml"
+  script:
+    - npx playwright test --reporter=junit || exit 0
+  artifacts:
+    when: always
+    expire_in: 30 days
+    paths:
+      - test-results/
+    reports:
+      junit: test-results/results.xml
