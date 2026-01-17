@@ -39,7 +39,10 @@ describe('Integration - Checkout Flow', () => {
             };
         });
 
-        await page.addInitScript(() => {
+        await setupViewport(page, false);
+        await page.goto('/cart.html');
+
+        await page.evaluate(() => {
             localStorage.setItem(
                 'cart',
                 JSON.stringify([
@@ -56,10 +59,10 @@ describe('Integration - Checkout Flow', () => {
                     notifications: false,
                 })
             );
+
+            location.reload();
         });
 
-        await setupViewport(page, false);
-        await page.goto('/cart.html');
         await expect(cartPagePO.cartItems).toHaveCount(2);
 
         await cartPagePO.checkoutButton.click();
