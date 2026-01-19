@@ -6,6 +6,7 @@ include:
       - "/jobs/rules.yaml"
 
 .global-variables:
+  interruptible: true
   variables:
       DOCKERFILE_PATH: dockerfile
       DOCKER_CONFIG: /kaniko/.docker
