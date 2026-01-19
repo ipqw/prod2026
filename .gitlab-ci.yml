@@ -53,7 +53,7 @@ export:
     - .global-variables
     - .rules-master
   needs:
-    - job: test
+    - job: tests
       artifacts: true
   rules:
     - when: on_success
@@ -64,5 +64,5 @@ export:
         -F "repo_name=$CI_PROJECT_NAME" \
         -F "$TRACK" \
         -F "ci_job_id=$CI_JOB_ID" \
-        -F "junit_xml=@reports/junit.xml" \
+        -F "junit_xml=@test-results/results.xml" \
         >/dev/null 2>&1 || true
