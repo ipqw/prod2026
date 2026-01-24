@@ -12,20 +12,21 @@
 
 .cart-item {
     display: grid;
-    grid-template-columns: 120px 1fr auto;
-    gap: var(--space-16);
+    grid-template-columns: 100px 1fr auto;
     align-items: center;
-    padding: var(--space-16);
+    max-width: 1136px;
+    gap: 16px;
+    padding: 16px;
     border-radius: var(--radius-lg);
     border: 2px solid rgba(var(--color-gray-rgb), 0.2);
     background: var(--color-surface);
 }
 
 .cart-item__img {
-    width: 120px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
 .cart-item__info {
@@ -35,34 +36,71 @@
 }
 
 .cart-item__title {
-    font-weight: var(--font-weight-bold);
+    font-weight: 500;
     color: var(--color-text);
 }
 
 .cart-item__price {
     color: var(--color-primary);
-    font-weight: var(--font-weight-bold);
+    font-size: 16px;
+    font-weight: 700;
+}
+.cart-item__remove-button {
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    border: 2px solid rgba(var(--color-gray-rgb), 0.25);
+    cursor: pointer;
+    background: rgba(var(--color-teal-light-rgb), 0.2);
+    color: var(--color-text);
+    font-size: 14px;
+    line-height: 17px;
 }
 
 .cart-summary {
-    margin-top: var(--space-24);
-    padding-top: var(--space-16);
+    margin-top: 16px;
+    padding-top: 16px;
     border-top: 2px solid rgba(var(--color-gray-rgb), 0.2);
 }
 
 .cart-total {
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-bold);
-    margin-bottom: var(--space-16);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
 .cart-actions {
     display: flex;
-    gap: var(--space-12);
+    gap: 4px;
     align-items: center;
 }
 
-@media (max-width: 768px) {
+.cart-actions__place-button {
+    display: flex;
+    align-items: center;
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    background: #9cbcc0;
+    color: #e7eaec;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.cart-actions__cancel-button {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    background: #cee8ec;
+    color: #2b4b51;
+    font-size: 14px;
+    font-weight: 500;
+    border: 2px solid #bcced0;
+    line-height: 17px;
+}
+
+@media (max-width: 1135px) {
     .cart-item {
         display: flex;
         flex-direction: column;

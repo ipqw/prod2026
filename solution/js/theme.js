@@ -1,0 +1,29 @@
+import { readStorage, writeStorage, STORAGE_KEYS } from './storage.js';
+
+export function applyThemeFromStorage() {
+    const saved = readStorage(STORAGE_KEYS.THEME, 'light');
+    const html = document.documentElement;
+    const toggleIcon = document.querySelector('.page__theme-toggle img');
+    if (saved === 'dark') {
+        html.classList.add('dark-theme');
+        if (toggleIcon) toggleIcon.src = './images/icons/sun.svg';
+    } else {
+        html.classList.remove('dark-theme');
+        if (toggleIcon) toggleIcon.src = './images/icons/moon.svg';
+    }
+}
+
+export function initThemeToggle() {
+    applyThemeFromStorage();
+    const toggle = document.querySelector('[data-test-id="theme-toggle"]');
+    const icon = toggle && toggle.querySelector('img');
+    if (!toggle) return;
+    toggle.addEventListener('click', () => {
+        const html = document.documentElement;
+        const isDark = html.classList.toggle('dark-theme');
+        writeStorage(STORAGE_KEYS.THEME, isDark ? 'dark' : 'light');
+        if (icon) {
+            icon.src = isDark ? './images/icons/sun.svg' : './images/icons/moon.svg';
+        }
+    });
+}
