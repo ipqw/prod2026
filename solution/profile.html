@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Luxury Profile</title>
+        <link rel="stylesheet" href="./styles/layout.css" />
+        <link rel="stylesheet" href="./styles/profile.css" />
+        <link rel="stylesheet" href="./styles/modal.css" />
+    </head>
+    <body class="page" data-page="profile">
+        <header class="page__header">
+            <div class="page__header-inner">
+                <div class="page__logo">Luxury</div>
+
+                <nav class="page__nav">
+                    <button class="page__nav-button" type="button" data-test-id="menu-shop" aria-label="Search">
+                        <img class="page__icon" src="./images/icons/search.svg" alt="" />
+                    </button>
+                    <button class="page__nav-button" type="button" data-test-id="menu-cart" aria-label="Cart">
+                        <img class="page__icon" src="./images/icons/cart.svg" alt="" />
+                        <span class="page__cart-badge" data-test-id="cart-badge" hidden>0</span>
+                    </button>
+                    <button class="page__nav-button" type="button" data-test-id="menu-profile" aria-label="Profile">
+                        <img class="page__icon" src="./images/icons/profile.svg" alt="" />
+                    </button>
+                    <button class="page__nav-button" type="button" data-test-id="menu-history" aria-label="History">
+                        <img class="page__icon" src="./images/icons/history.svg" alt="" />
+                    </button>
+                    <button class="page__theme-toggle" type="button" data-test-id="theme-toggle" aria-label="Theme">
+                        <img class="page__icon" src="./images/icons/moon.svg" alt="" />
+                    </button>
+                </nav>
+
+                <div class="page__search">
+                    <input
+                        class="page__search-input"
+                        type="search"
+                        placeholder="Search products..."
+                        data-test-id="search-input"
+                    />
+                    <div class="page__search-suggestions" data-test-id="search-suggestions"></div>
+                </div>
+            </div>
+        </header>
+
+        <main class="page__content" data-test-id="profile"></main>
+
+        <div id="notification-root"></div>
+        <div id="modal-root"></div>
+
+        <script src="./main.js"></script>
+    </body>
+</html>
+
+
