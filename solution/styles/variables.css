@@ -14,7 +14,7 @@
     --color-teal-dark: rgba(33, 128, 141, 1);
     --color-teal-semidark: rgb(27, 105, 115);
     --color-red-light: rgba(255, 84, 89, 1);
-    --color-red-dark: rgba(192, 21, 47, 1);
+    --color-red-dark: #ff5458;
 
     /* RGB versions for opacity control */
     --color-black-rgb: 20, 20, 20;
@@ -91,6 +91,8 @@
 html {
     --icon-filter: invert(0);
     --icon-bg: transparent;
+
+    --btn-bg: #cee9ec;
     
     --color-background: var(--color-cream);
     --color-surface: var(--color-white);
@@ -120,6 +122,8 @@ html {
 }
 
 html.dark-theme {
+    --btn-bg: #cee9ec;
+
     --icon-filter: invert(1);
     --icon-bg: #2d2d2c;
     --color-background: var(--color-charcoal);

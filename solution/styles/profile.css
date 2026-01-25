@@ -1,21 +1,25 @@
 .profile {
-    max-width: 450px;
+    max-width: 500px;
 }
 
 .profile__title {
-    font-size: var(--font-size-3xl);
+    font-size: 28px;
+    letter-spacing: 0.6px;
     font-weight: var(--font-weight-bold);
     margin-bottom: var(--space-24);
 }
 
 .profile__field {
-    margin-bottom: var(--space-24);
+    margin-bottom: 32px;
 }
 
 .profile__label {
     display: block;
     margin-bottom: var(--space-8);
     color: var(--color-text);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
 }
 
 .profile__input {
@@ -27,14 +31,17 @@
     color: var(--color-text);
     background-color: var(--color-surface);
     outline: none;
+    max-height: 36px;
 }
 
 .profile__input:focus {
-    border-color: var(--color-primary);
+    border-color: #21818d;
+    box-shadow: 0 0 0 3px #a0c6ca;
 }
 
 .profile__error {
-    margin-top: var(--space-4);
+    margin-top: 8px;
+    letter-spacing: 0.3px;
     color: var(--color-error);
     font-size: var(--font-size-sm);
 }
@@ -43,7 +50,7 @@
     display: flex;
     align-items: center;
     gap: var(--space-8);
-    margin-bottom: var(--space-24);
+    margin-bottom: 16px;
     cursor: pointer;
     user-select: none;
 }
@@ -55,24 +62,33 @@
 }
 
 .profile__checkbox-box {
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgba(var(--color-gray-rgb), 0.25);
-    border-radius: 3px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--color-border);
+    border-radius: 4px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    background-color: var(--color-surface) ;
+}
+
+.profile__checkbox-box--hover {
+    border-color: rgba(33, 128, 141, 1);
+    background-color: var(--btn-bg);
 }
 
 .profile__checkbox-box--checked {
     border-color: rgba(33, 128, 141, 1);
-    background-color: rgba(33, 128, 141, 1);
+    background-color: rgba(33, 128, 141, 1) !important;
 }
+
+
 
 .dark-theme .profile__checkbox-box--checked {
     border-color: var(--color-teal-light);
-    background-color: var(--color-teal-light);
+    background-color: var(--btn-bg);
+    
 }
 
 .profile__checkbox-check {
@@ -85,10 +101,38 @@
     margin-bottom: 2px;
 }
 
+.profile__checkbox-span {
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
 .profile__checkbox-box--checked .profile__checkbox-check {
     display: block;
 }
 
 .profile__save {
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: var(--font-size-base);
     width: 100%;
+    line-height: 17px;
+    padding: 12px;
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-btn-primary-text);
+    
+}
+
+@media (max-width: 768px) {
+    .profile__title {
+        font-size: 24px;
+        line-height: 40px;
+        letter-spacing: 0.3px;
+        margin-bottom: 22px;
+    }
+    .profile__save {
+        max-height: 38px;
+    }
 }

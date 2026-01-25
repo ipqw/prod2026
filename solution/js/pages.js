@@ -202,13 +202,13 @@ export function renderCartPage() {
 }
 
 export function renderProfilePage() {
-    const container = document.querySelector('[data-test-id="profile"]');
+    const container = document.querySelector('.page__content');
     if (!container) return;
 
     const saved = readStorage(STORAGE_KEYS.PROFILE, {name: '', email: '', notifications: false});
 
     container.innerHTML = `
-        <div class="profile">
+        <div class="profile" data-test-id="profile">
             <div class="profile__title">My Profile</div>
             <div class="profile__field">
                 <label class="profile__label" for="profile-name">Name</label>
@@ -220,12 +220,12 @@ export function renderProfilePage() {
                 <input id="profile-email" class="profile__input" data-test-id="profile-email" />
                 <div class="profile__error" data-error-for="email"></div>
             </div>
-            <label class="profile__checkbox-row" data-test-id="profile-notifications">
+            <label class="profile__checkbox-row" id="notif-checkbox" data-test-id="profile-notifications">
                 <span class="profile__checkbox-box"><span class="profile__checkbox-check"></span></span>
                 <input type="checkbox" class="profile__checkbox-input" />
-                <span>Receive notifications about new products</span>
+                <span class="profile__checkbox-span">Receive notifications about new products</span>
             </label>
-            <button class="btn btn--primary profile__save" type="button" data-test-id="profile-save">Save</button>
+            <button class="profile__save" type="button" data-test-id="profile-save">Save</button>
         </div>
     `;
 
@@ -235,6 +235,16 @@ export function renderProfilePage() {
     const notifInput = notifContainer && notifContainer.querySelector('.profile__checkbox-input');
     const notifBox = notifContainer && notifContainer.querySelector('.profile__checkbox-box');
     const saveBtn = container.querySelector('[data-test-id="profile-save"]');
+
+    const notifCheckbox = document.getElementById('notif-checkbox')
+
+    notifCheckbox.addEventListener('mouseenter', () => {
+        notifBox.classList.add('profile__checkbox-box--hover')
+    })
+
+    notifCheckbox.addEventListener('mouseleave', () => {
+        notifBox.classList.remove('profile__checkbox-box--hover')
+    })
 
     if (nameInput) nameInput.value = saved.name || '';
     if (emailInput) emailInput.value = saved.email || '';
