@@ -200,6 +200,11 @@ body {
 
     .page__search-input {
         width: 204px;
+        
+    }
+    .page__search-input::placeholder {
+        letter-spacing: 0.3px;
+        
     }
     .page__content {
         padding: 10px 12px;

@@ -116,6 +116,7 @@ export function renderFilters(container, selected) {
         box.className = 'filter__checkbox';
 
         const text = document.createElement('span');
+        text.className = 'filter__text'
         text.textContent = t;
 
         label.appendChild(input);
