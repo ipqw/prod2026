@@ -33,7 +33,15 @@ export async function initShopPage() {
     function rerender(nextState) {
         setQueryParams(nextState);
         renderFilters(filtersEl, nextState.filters);
+        const productList = document.getElementById('product-list')
         const filtered = filterProducts(products, nextState);
+
+        if(filtered.length < products.length) {
+            productList.classList.contains('shop__filtered_products') ? null : productList.classList.add('shop__filtered_products')
+        }
+        else {
+            productList.classList.contains('shop__filtered_products') ? productList.classList.remove('shop__filtered_products') : null
+        }
         renderProductList(listEl, filtered);
     }
 

@@ -160,14 +160,39 @@
 
 @media (max-width: 768px) {
     .modal {
-        max-width: 340px;
+        width: 337px;
     }
 
     .modal__image {
-        height: 220px;
+        height: 200px;
+        object-position: 50% -11px;
     }
 
     .modal__body {
-        padding: var(--space-16);
+        padding: 24px;
+        padding-top: 29px;
+    }
+    .modal__title {
+        letter-spacing: 0.4px;
+    }
+    .overlay {
+        padding: 0;
+        padding-top: 48px;
+    }
+    .modal__description {
+        letter-spacing: 0.19px;
+        max-width: 272px;
+    }
+    .modal__price {
+        font-size: 18px;
+        letter-spacing: 0.3px;
+    }
+    .btn__add-to-cart {
+        width: 100%;
+        font-size: 12px;
+        font-weight: 300;
+        padding: 6px 0;
+        line-height: 16px;
+        max-height: 38px;
     }
 }

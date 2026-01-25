@@ -8,6 +8,7 @@
     background-color: var(--color-surface);
     margin-bottom: 32px;
     max-width: 1136px;
+    margin-left: 1px;
 }
 
 .filter {
@@ -67,6 +68,11 @@
     justify-content: center;
     align-items: center;
     column-gap: 24px;
+}
+
+.shop__filtered_products {
+    justify-content: flex-start;
+    padding-left: 1px;
 }
 
 .product-card,
