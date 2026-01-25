@@ -40,7 +40,7 @@ export function openProductModal(product) {
     `;
 
     const actionBtn = document.createElement('button');
-    actionBtn.className = 'btn btn--primary';
+    actionBtn.className = 'btn btn--primary btn__add-to-cart';
     actionBtn.type = 'button';
 
     function syncButton() {

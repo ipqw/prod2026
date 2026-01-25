@@ -81,6 +81,7 @@ export async function initShopPage() {
 export function renderCartPage() {
     const list = document.querySelector('[data-test-id="cart-list"]');
     if (!list) return;
+    list.classList.add('cart-wrapper')
 
     const cart = getCartItems();
     if (!cart.length) {
@@ -148,7 +149,7 @@ export function renderCartPage() {
         cancelBtn.type = 'button';
         cancelBtn.textContent = 'Cancel';
         cancelBtn.setAttribute('data-test-id', 'cancel-checkout-button');
-        cancelBtn.style.display = 'none';
+        // cancelBtn.style.display = 'none';
 
         actions.appendChild(checkoutBtn);
         actions.appendChild(cancelBtn);

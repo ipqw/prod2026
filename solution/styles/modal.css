@@ -4,29 +4,29 @@
     background: rgba(0, 0, 0, 0.5);
     z-index: 60;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: var(--space-16);
+    padding: 54px;
 }
 
 .modal {
     width: 100%;
-    max-width: 720px;
+    height: fit-content;
+    max-width: 600px;
     background: var(--color-surface);
-    border-radius: var(--radius-lg);
-    border: 2px solid rgba(var(--color-gray-rgb), 0.25);
+    border-radius: 12px;
     overflow: hidden;
     position: relative;
+    border: 2px solid var(--color-modal-border);
 }
 
 .modal__close {
     position: absolute;
-    top: var(--space-12);
-    right: var(--space-12);
-    width: 34px;
-    height: 34px;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
     border-radius: var(--radius-sm);
-    border: 2px solid rgba(var(--color-gray-rgb), 0.25);
+    border: 2px solid var(--color-modal-border);
     background: var(--color-surface);
     cursor: pointer;
     display: flex;
@@ -36,25 +36,27 @@
 }
 
 .modal__close img {
-    width: 16px;
-    height: 16px;
+    width: 10px;
+    height: 10px;
 }
 
 .modal__image {
     width: 100%;
-    height: 240px;
+    height: 299px;
     object-fit: cover;
     display: block;
 }
 
 .modal__body {
-    padding: var(--space-24);
+    padding: 30px 24px;
+    padding-bottom: 22px;
 }
 
 .modal__title {
-    font-size: var(--font-size-3xl);
+    font-size: 20px;
     font-weight: var(--font-weight-bold);
     margin-bottom: var(--space-12);
+    letter-spacing: 0.3px;
 }
 
 .modal__type {
@@ -67,14 +69,16 @@
 
 .modal__description {
     color: var(--color-text);
-    margin-bottom: var(--space-16);
+    margin-bottom: 24px;
+    letter-spacing: 0.2px;
 }
 
 .modal__price {
-    font-size: var(--font-size-3xl);
+    font-size: 20px;
+    letter-spacing: 0.15px;
     font-weight: var(--font-weight-bold);
     color: var(--color-primary);
-    margin-bottom: var(--space-16);
+    margin-bottom: 24px;
 }
 
 .btn {
@@ -96,6 +100,15 @@
 .btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+}
+
+.btn__add-to-cart {
+    width: 106px;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    height: 41px;
 }
 
 .confirm-modal {
