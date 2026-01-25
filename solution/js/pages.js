@@ -334,7 +334,7 @@ export function renderHistoryPage() {
         return;
     }
 
-    const sortedOrders = [...orders].sort((a, b) => parseDate(a.date) - parseDate(b.date));
+    const sortedOrders = [...orders].sort((a, b) => parseDate(b.date) - parseDate(a.date));
 
     const wrap = document.createElement('div');
     wrap.className = 'orders';

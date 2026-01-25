@@ -92,6 +92,8 @@ html {
     --icon-filter: invert(0);
     --icon-bg: transparent;
 
+    --tag-bg: var(--color-teal-light-rgb);
+
     --btn-bg: #cee9ec;
     
     --color-background: var(--color-cream);
@@ -123,6 +125,7 @@ html {
 
 html.dark-theme {
     --btn-bg: #cee9ec;
+    --tag-bg: #2c2c2d;
 
     --icon-filter: invert(1);
     --icon-bg: #2d2d2c;

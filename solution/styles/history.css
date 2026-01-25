@@ -1,7 +1,7 @@
 .orders {
     display: flex;
     flex-direction: column;
-    gap: var(--space-16);
+    gap: 16px;
 }
 
 .orders__item {
@@ -37,7 +37,7 @@
     border-radius: 999px;
     border: 1px solid rgba(var(--color-gray-rgb), 0.25);
     font-size: var(--font-size-sm);
-    background-color: rgba(var(--color-teal-light-rgb), 0.15);
+    background-color: var(--tag-bg);
 }
 
 .dark-theme .orders__tag {
@@ -53,4 +53,35 @@
     text-align: center;
     color: var(--color-text-secondary);
     margin-top: 120px;
+}
+
+@media (max-width: 768px) {
+    .orders__item {
+        padding: 12px;
+        border: 2px solid var(--color-border);
+    }
+    .orders__id {
+        font-weight: 400;
+        letter-spacing: 0.3px;
+    }
+    .orders__date {
+        font-size: 12px;
+        letter-spacing: 0.3px;
+    }
+    .orders__tag {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0.2px;
+        height: 26px;
+        padding: 0px 10px;
+        background-color: var(--tag-bg);
+    }
+    .orders__total {
+        font-size: 16px;
+        letter-spacing: 0.4px;
+    }
+    .orders__header {
+        margin-bottom: 12px;
+    }
 }

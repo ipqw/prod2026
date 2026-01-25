@@ -3,7 +3,8 @@ import { STORAGE_KEYS } from './storage.js';
 export function applyThemeFromStorage() {
     const saved = localStorage.getItem('theme');
     const html = document.documentElement;
-    const toggleIcon = document.querySelector('.page__theme-toggle img');
+    const toggle = document.querySelector('[data-test-id="theme-toggle"]');
+    const toggleIcon = toggle && toggle.querySelector('img');
     if (saved === 'dark') {
         html.classList.add('dark-theme');
         if (toggleIcon) toggleIcon.src = './images/icons/sun.svg';

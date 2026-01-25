@@ -23,7 +23,7 @@ body {
 .page__header-inner {
     max-width: 1205px;
     margin: 0 auto;
-    padding: 15px 18px;
+    padding: 16px 18px;
     display: flex;
     align-items: center;
     gap: 32px;
@@ -40,20 +40,25 @@ body {
 .page__nav {
     display: flex;
     align-items: center;
-    gap: 22px;
+    gap: 24px;
+    letter-spacing: 0.3px !important;
 }
 
 .page__nav-button {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-8);
     padding: 8px;
-    border-radius: var(--radius-full);
-    border: 1px solid transparent;
+    border-radius: 4px;
     cursor: pointer;
-    color: var(--color-text-secondary);
     position: relative;
+    background-color: transparent;
 }
+.page__nav-button:hover {
+    background-color: var(--icon-bg)
+}
+
+
+
 
 .page__icon {
     max-width: 24px;
@@ -83,20 +88,10 @@ body {
     font-size: var(--font-size-base);
 }
 
-.page__theme-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: var(--radius-sm);
-    background-color: var(--icon-bg);
-    padding: 8px;
-}
-
 .page__cart-badge {
     position: absolute;
-    top: -16px;
-    right: -16px;
+    top: -8px;
+    right: -8px;
     min-width: 18px;
     height: 20px;
     min-width: 20px;
@@ -183,18 +178,19 @@ body {
     .page__header-inner {
         flex-direction: column;
         align-items: center;
-        gap: 11px;
+        gap: 12px;
         padding: 8px 0px;
     }
 
     .page__logo {
-        
+        letter-spacing: 0.3px !important;
         font-size: var(--font-size-xl);
+        
     }
 
     .page__nav {
         order: 1;
-        gap: 2.5px;
+        gap: 4px;
     }
 
     .page__search {
@@ -208,6 +204,18 @@ body {
     }
     .page__content {
         padding: 10px 12px;
-        
+    }
+    .page__cart-badge {
+        top: -4px;
+        right: -4px;
+    }
+    .page__content {
+        padding-top: 12px;
+    }
+    .page__title {
+        font-size: 24px;
+        letter-spacing: 0.6px;
+        font-weight: var(--font-weight-bold);
+        margin-bottom: var(--space-24);
     }
 }

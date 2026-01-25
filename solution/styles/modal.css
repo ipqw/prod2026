@@ -1,7 +1,7 @@
 .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 60;
     display: flex;
     justify-content: center;
@@ -113,27 +113,49 @@
 
 .confirm-modal {
     width: 100%;
-    max-width: 760px;
-    padding: var(--space-24);
+    max-width: 600px;
+    min-height: 180px;
+    height: fit-content;
+    padding: 24px;
     background: var(--color-surface);
-    border-radius: var(--radius-lg);
-    border: 2px solid rgba(var(--color-gray-rgb), 0.25);
+    border-radius: 12px;
+    border: 2px solid #737272;
 }
 
 .confirm-modal__title {
-    font-size: var(--font-size-3xl);
+    font-size: 20px;
+    letter-spacing: 0.6px;
     font-weight: var(--font-weight-bold);
-    margin-bottom: var(--space-8);
+    margin-bottom: 12px;
 }
 
 .confirm-modal__text {
     color: var(--color-text-secondary);
     margin-bottom: var(--space-24);
+    font-size: 14px;
+    letter-spacing: 0.25px;
 }
 
 .confirm-modal__actions {
     display: flex;
     gap: var(--space-16);
+}
+
+.confirm-modal__remove-btn {
+    padding: 0;
+    height: 41px;
+    width: 112px;
+    font-weight: 400;
+    letter-spacing: 0.15px;
+
+}
+
+.confirm-modal__cancel-btn {
+    padding: 0;
+    height: 41px;
+    width: 82px;
+    font-weight: 400;
+    letter-spacing: 0.15px;
 }
 
 @media (max-width: 768px) {

@@ -113,8 +113,8 @@ export function openRemoveConfirmModal(productId, onConfirm) {
         <div class="confirm-modal__title">Remove Product?</div>
         <div class="confirm-modal__text">Are you sure you want to remove this product from your cart?</div>
         <div class="confirm-modal__actions">
-            <button class="btn btn--primary" type="button" data-test-id="confirm-remove">Yes, remove</button>
-            <button class="btn" type="button" data-test-id="cancel-remove">Cancel</button>
+            <button class="btn btn--primary confirm-modal__remove-btn" type="button" data-test-id="confirm-remove">Yes, remove</button>
+            <button class="btn confirm-modal__cancel-btn" type="button" data-test-id="cancel-remove">Cancel</button>
         </div>
     `;
 
