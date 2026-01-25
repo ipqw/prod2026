@@ -92,7 +92,7 @@ html {
     --icon-filter: invert(0);
     --icon-bg: transparent;
 
-    --tag-bg: var(--color-teal-light-rgb);
+    --tag-bg: #d6f1f5;
 
     --btn-bg: #cee9ec;
     

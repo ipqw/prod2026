@@ -5,7 +5,7 @@
 }
 
 .orders__item {
-    padding: var(--space-16) var(--space-24);
+    padding: 16px;
     border-radius: var(--radius-lg);
     border: 2px solid rgba(var(--color-gray-rgb), 0.2);
     background: var(--color-surface);
@@ -18,11 +18,15 @@
 }
 
 .orders__id {
-    font-weight: var(--font-weight-bold);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.3px;
 }
 
 .orders__date {
     color: var(--color-text-secondary);
+    font-size: 12px;
+    letter-spacing: 0.3px;
 }
 
 .orders__products {
@@ -33,11 +37,12 @@
 }
 
 .orders__tag {
-    padding: 4px 10px;
+    padding: 4px 12.5px;
     border-radius: 999px;
-    border: 1px solid rgba(var(--color-gray-rgb), 0.25);
     font-size: var(--font-size-sm);
     background-color: var(--tag-bg);
+    letter-spacing: 0.15px;
+    font-weight: 500;
 }
 
 .dark-theme .orders__tag {
@@ -45,8 +50,10 @@
 }
 
 .orders__total {
-    font-weight: var(--font-weight-bold);
+    font-weight: 700;
     color: var(--color-primary);
+    font-size: 16px;
+    letter-spacing: 0.4px;
 }
 
 .orders-empty {
@@ -61,12 +68,18 @@
         border: 2px solid var(--color-border);
     }
     .orders__id {
-        font-weight: 400;
-        letter-spacing: 0.3px;
+        font-weight: 600;
+        letter-spacing: 0.1px;
+        word-spacing: 1.5px;
+        font-size: 14px;
     }
     .orders__date {
         font-size: 12px;
         letter-spacing: 0.3px;
+    }
+    .orders__products {
+        row-gap: 4px;
+        column-gap: 4px;
     }
     .orders__tag {
         display: flex;
@@ -74,7 +87,7 @@
         justify-content: center;
         letter-spacing: 0.2px;
         height: 26px;
-        padding: 0px 10px;
+        padding: 0px 12px;
         background-color: var(--tag-bg);
     }
     .orders__total {
