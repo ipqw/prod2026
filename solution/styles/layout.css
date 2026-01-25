@@ -16,21 +16,22 @@ body {
 }
 
 .page__header {
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 2px solid var(--color-border);
     background-color: var(--color-surface);
 }
 
 .page__header-inner {
-    max-width: var(--size-1200);
+    max-width: 1205px;
     margin: 0 auto;
-    padding: var(--space-16);
+    padding: 18px;
     display: flex;
     align-items: center;
-    gap: var(--space-24);
+    gap: 40px;
 }
 
 .page__logo {
-    font-size: var(--font-size-2xl);
+    font-size: 20px;
+    letter-spacing: 0px !important;
     font-weight: var(--font-weight-bold);
     letter-spacing: var(--letter-spacing-md);
     color: var(--color-primary);
@@ -39,7 +40,7 @@ body {
 .page__nav {
     display: flex;
     align-items: center;
-    gap: var(--space-24);
+    gap: 38px;
 }
 
 .page__nav-button {
@@ -55,8 +56,13 @@ body {
 }
 
 .page__icon {
-    width: var(--size-20);
-    height: var(--size-20);
+    max-width: 24px;
+    max-height: 24px;
+}
+
+.page__icon__theme-toogle {
+    max-width: 20px;
+    max-height: 20px;
 }
 
 .page__search {
@@ -65,12 +71,13 @@ body {
 }
 
 .page__search-input {
-    width: 220px;
-    padding: var(--space-8) var(--space-16);
+    width: 203px;
+    padding: 8px 12px;
+    letter-spacing: 0.2px !important;
     border-radius: var(--radius-sm);
-    border: 1px solid var(--color-border);
+    border: 2px solid var(--color-border);
     background-color: var(--color-surface);
-    color: var(--color-text);
+    color: #abaaaa;
     font-size: var(--font-size-base);
 }
 
@@ -78,24 +85,23 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: var(--size-32);
-    height: var(--size-32);
-    border-radius: var(--radius-sm);
     border: 1px solid transparent;
     cursor: pointer;
 }
 
 .page__cart-badge {
     position: absolute;
-    top: -6px;
-    right: -6px;
+    top: -16px;
+    right: -16px;
     min-width: 18px;
-    height: 18px;
+    height: 20px;
+    min-width: 20px;
     padding: 0 4px;
     border-radius: 999px;
     background-color: rgba(255, 84, 89, 1);
-    color: var(--color-white);
-    font-size: var(--font-size-sm);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -110,11 +116,12 @@ body {
     max-width: 1170px;
     width: 100%;
     margin: 0 auto;
-    padding: var(--space-24) var(--space-16) var(--space-32);
+    padding: 32px 16px;
 }
 
 .page__title {
-    font-size: var(--font-size-3xl);
+    font-size: 28px;
+    letter-spacing: 0.6px;
     font-weight: var(--font-weight-bold);
     margin-bottom: var(--space-24);
 }

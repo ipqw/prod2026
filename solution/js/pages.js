@@ -131,7 +131,7 @@ export function renderCartPage() {
 
     if (!isAuthed) {
         const loginBtn = document.createElement('button');
-        loginBtn.className = 'btn';
+        loginBtn.className = 'login-btn';
         loginBtn.type = 'button';
         loginBtn.textContent = 'Login to place an order';
         loginBtn.addEventListener('click', () => navigateTo('./profile.html'));
