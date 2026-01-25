@@ -59,8 +59,11 @@
 
 .shop__products {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--space-24);
+    grid-template-columns: repeat(4, auto);
+    row-gap: 24px;
+    justify-content: center;
+    align-items: center;
+    column-gap: 24px;
 }
 
 .product-card,
@@ -151,7 +154,8 @@
     font-size: 12px;
     line-height: 17px;
     letter-spacing: 0.6px;
-    color: #79b3ba;
+    /* color: #79b3ba; */
+    color: var(--color-primary);
     text-transform: uppercase;
     margin-bottom: 4px;
 }
@@ -168,7 +172,8 @@
 
 .product-card__price {
     font-weight: 600;
-    color: #79b3ba;
+    /* color: #79b3ba; */
+    color: var(--color-primary);
     font-size: 16px;
     letter-spacing: 0.6px;
 }

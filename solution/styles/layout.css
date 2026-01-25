@@ -26,14 +26,13 @@ body {
     padding: 16px 18px;
     display: flex;
     align-items: center;
-    gap: 34px;
+    gap: 33px;
 }
 
 .page__logo {
     font-size: 20px;
-    letter-spacing: 0px !important;
     font-weight: var(--font-weight-bold);
-    letter-spacing: var(--letter-spacing-md);
+    letter-spacing: 0.15px;
     color: var(--color-primary);
 }
 
