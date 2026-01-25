@@ -85,7 +85,7 @@ export function renderProductList(container, products) {
         card.innerHTML = `
             <div class="product-card__image-wrapper">
                 <img class="product-card__image" src="./${p.image}" alt="${p.title}" />
-                ${isBought ? '<div class="product-card__bought-badge">BOUGHT</div>' : ''}
+                ${isBought ? '<div class="product-card__bought-bg"><div class="product-card__bought-badge">BOUGHT</div></div>' : ''}
             </div>
             <div class="product-card__content">
                 <div class="product-card__type" data-test-id="product-type">${p.type}</div>
