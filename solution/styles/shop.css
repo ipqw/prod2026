@@ -1,27 +1,29 @@
 .shop__filters {
     display: flex;
     align-items: center;
-    gap: var(--space-16);
+    gap: 16px;
     padding: var(--space-16);
     border-radius: var(--radius-lg);
-    border: 2px solid rgba(var(--color-gray-rgb), 0.2);
+    border: 2px solid var(--color-border);
     background-color: var(--color-surface);
-    margin-bottom: var(--space-24);
+    margin-bottom: 32px;
+    max-width: 1136px;
 }
 
 .filter {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-8);
+    gap: 8px;
     color: var(--color-text);
     cursor: pointer;
     user-select: none;
+    letter-spacing: 0.44px;
 }
 
 .filter__checkbox {
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgba(var(--color-gray-rgb), 0.25);
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--color-border);
     border-radius: 3px;
     display: inline-block;
     position: relative;
@@ -73,6 +75,8 @@
 
 .product-card {
     cursor: pointer;
+    max-width: 266px;
+    border: 2px solid var(--color-border);
 }
 
 .product-card:hover {
@@ -98,6 +102,7 @@
 .skeleton-card__image {
     width: 100%;
     aspect-ratio: 4 / 3;
+    height: 200px;
     object-fit: cover;
     display: block;
 }
@@ -129,26 +134,32 @@
     padding: var(--space-16);
     display: flex;
     flex-direction: column;
-    gap: var(--space-8);
 }
 
 .product-card__type {
-    font-size: var(--font-size-sm);
-    letter-spacing: var(--letter-spacing-md);
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: 0.6px;
     color: var(--color-primary);
     text-transform: uppercase;
+    margin-bottom: 4px;
 }
 
 .product-card__title {
     font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-bold);
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+    line-height: 24px;
     color: var(--color-text);
+    margin-bottom: 10px;
 }
 
 .product-card__price {
     font-weight: var(--font-weight-bold);
     color: var(--color-primary);
-    font-size: var(--font-size-xl);
+    font-size: 16px;
+    letter-spacing: 0.6px;
 }
 
 .skeleton-card__line {

@@ -1,7 +1,7 @@
-import { readStorage, writeStorage, STORAGE_KEYS } from './storage.js';
+import { STORAGE_KEYS } from './storage.js';
 
 export function applyThemeFromStorage() {
-    const saved = readStorage(STORAGE_KEYS.THEME, 'light');
+    const saved = localStorage.getItem('theme');
     const html = document.documentElement;
     const toggleIcon = document.querySelector('.page__theme-toggle img');
     if (saved === 'dark') {
@@ -21,7 +21,7 @@ export function initThemeToggle() {
     toggle.addEventListener('click', () => {
         const html = document.documentElement;
         const isDark = html.classList.toggle('dark-theme');
-        writeStorage(STORAGE_KEYS.THEME, isDark ? 'dark' : 'light');
+        localStorage.setItem(STORAGE_KEYS.THEME, isDark ? 'dark' : 'light');
         if (icon) {
             icon.src = isDark ? './images/icons/sun.svg' : './images/icons/moon.svg';
         }

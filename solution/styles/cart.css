@@ -18,7 +18,7 @@
     gap: 16px;
     padding: 16px;
     border-radius: var(--radius-lg);
-    border: 2px solid rgba(var(--color-gray-rgb), 0.2);
+    border: 2px solid var(--color-border);
     background: var(--color-surface);
 }
 
@@ -26,7 +26,7 @@
     width: 100px;
     height: 100px;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
 }
 
 .cart-item__info {
@@ -46,7 +46,6 @@
     color: var(--color-primary);
     font-size: 16px;
     font-weight: 800;
-    color: #3f909c;
     letter-spacing: 0.58px;
 }
 .cart-item__remove-button {
@@ -56,25 +55,25 @@
     cursor: pointer;
     padding: 10px 16px;
     border-radius: var(--radius-sm);
-    border: 2px solid #bacccf;
+    border: var(--border-width) solid var(--color-border);
     cursor: pointer;
-    background: rgba(var(--color-teal-light-rgb), 0.2);
-    color: #000000;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0.3px;
+    background: var(--color-secondary);
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing-sm);
     max-width: 90px;
 }
 
 .cart-summary {
     margin-top: 16px;
     padding-top: 16px;
-    border-top: 2px solid rgba(var(--color-gray-rgb), 0.2);
+    border-top: 2px solid var(--color-border);
 }
 
 .cart-total {
     font-size: 18px;
-    color: #28464c;
+    color: var(--color-text);
     font-weight: 700;
     margin-bottom: 12px;
     letter-spacing: 0.3px;
@@ -123,10 +122,10 @@
     line-height: 21px;
     letter-spacing: 0.3px;
     border-radius: var(--radius-sm);
-    border: 2px solid rgba(var(--color-gray-rgb), 0.25);
+    border: 2px solid var(--color-border);
     cursor: pointer;
-    background: rgba(var(--color-teal-light-rgb), 0.2);
-    color: #000000;
+    background: var(--color-secondary);
+    color: var(--color-text);
     font-size: var(--font-size-base);
 }
 

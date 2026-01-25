@@ -148,7 +148,7 @@ export function renderCartPage() {
         cancelBtn.type = 'button';
         cancelBtn.textContent = 'Cancel';
         cancelBtn.setAttribute('data-test-id', 'cancel-checkout-button');
-        // cancelBtn.style.display = 'none';
+        cancelBtn.style.display = 'none';
 
         actions.appendChild(checkoutBtn);
         actions.appendChild(cancelBtn);

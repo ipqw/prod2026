@@ -23,10 +23,10 @@ body {
 .page__header-inner {
     max-width: 1205px;
     margin: 0 auto;
-    padding: 18px;
+    padding: 15px 18px;
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 32px;
 }
 
 .page__logo {
@@ -40,14 +40,14 @@ body {
 .page__nav {
     display: flex;
     align-items: center;
-    gap: 38px;
+    gap: 22px;
 }
 
 .page__nav-button {
     display: inline-flex;
     align-items: center;
     gap: var(--space-8);
-    padding: 0;
+    padding: 8px;
     border-radius: var(--radius-full);
     border: 1px solid transparent;
     cursor: pointer;
@@ -58,11 +58,13 @@ body {
 .page__icon {
     max-width: 24px;
     max-height: 24px;
+    filter: var(--icon-filter);
 }
 
 .page__icon__theme-toogle {
     max-width: 20px;
     max-height: 20px;
+    filter: var(--icon-filter);
 }
 
 .page__search {
@@ -85,8 +87,10 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid transparent;
     cursor: pointer;
+    border-radius: var(--radius-sm);
+    background-color: var(--icon-bg);
+    padding: 8px;
 }
 
 .page__cart-badge {

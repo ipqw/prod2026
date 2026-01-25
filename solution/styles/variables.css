@@ -89,6 +89,9 @@
 }
 
 html {
+    --icon-filter: invert(0);
+    --icon-bg: transparent;
+    
     --color-background: var(--color-cream);
     --color-surface: var(--color-white);
 
@@ -117,10 +120,12 @@ html {
 }
 
 html.dark-theme {
+    --icon-filter: invert(1);
+    --icon-bg: #2d2d2c;
     --color-background: var(--color-charcoal);
     --color-surface: var(--color-black);
 
-    --color-text: var(--color-cream);
+    --color-text: var(--color-white);
     --color-text-secondary: var(--color-gray-light);
 
     --color-primary: var(--color-teal-light);
