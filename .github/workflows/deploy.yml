@@ -1,0 +1,111 @@
+name: deploy
+
+# main → тесты организаторов (Playwright) → образ ghcr.io/ipqw/prod2026:<sha> → CI ставит этот тег
+# в home-flux (apps/vps/prod2026/kustomization.yaml) → flux выкатывает на https://prod2026.ipqw.cc.
+# Теги во flux руками не правятся.
+concurrency:
+  group: deploy-mutex
+  cancel-in-progress: false
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/deploy.yml'
+      - 'deploy/**'
+      - 'solution/**'
+      - 'tests/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'playwright.config.ts'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.12.0'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps --only-shell chromium
+      - run: npx playwright test
+
+  build:
+    needs: test
+    permissions:
+      contents: read
+      packages: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: docker/setup-buildx-action@v4
+      - uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v7
+        with:
+          push: true
+          platforms: linux/amd64
+          context: .
+          file: deploy/Dockerfile
+          tags: |
+            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${{ github.repository }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  update-manifests:
+    needs: build
+    runs-on: ubuntu-latest
+    # FLUX_DEPLOY_KEY — приватная половина deploy key с правом записи в ipqw/home-flux.
+    # Пока ключа нет, образ собирается, а тег во flux не ставится — шаги ниже пропускаются.
+    env:
+      HAS_KEY: ${{ secrets.FLUX_DEPLOY_KEY != '' }}
+    steps:
+      - name: No deploy key
+        if: env.HAS_KEY != 'true'
+        run: echo "::warning::FLUX_DEPLOY_KEY не задан — тег в home-flux не обновлён"
+
+      - name: Checkout Flux repository
+        if: env.HAS_KEY == 'true'
+        uses: actions/checkout@v6
+        with:
+          repository: ipqw/home-flux
+          ssh-key: ${{ secrets.FLUX_DEPLOY_KEY }}
+          path: home-flux
+
+      - name: Update image in kustomization.yaml
+        if: env.HAS_KEY == 'true'
+        working-directory: home-flux/apps/vps/prod2026
+        env:
+          IMAGE: ghcr.io/${{ github.repository }}
+          SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          file="kustomization.yaml"
+          if [ -z "$(yq eval "(.images[] | select(.name == \"$IMAGE\") | .name)" "$file")" ]; then
+            echo "::error::no image entry '$IMAGE' in $file"
+            exit 1
+          fi
+          yq eval -i "(.images[] | select(.name == \"$IMAGE\") | .newTag) = \"$SHA\"" "$file"
+          got="$(yq eval "(.images[] | select(.name == \"$IMAGE\") | .newTag)" "$file")"
+          if [ "$got" != "$SHA" ]; then
+            echo "::error::failed to set tag for '$IMAGE' in $file"
+            exit 1
+          fi
+
+      - name: Commit and push changes
+        if: env.HAS_KEY == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          repository: home-flux
+          commit_message: "prod2026: образ ${{ github.sha }}"
+          file_pattern: "apps/vps/prod2026/kustomization.yaml"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
